@@ -2,7 +2,6 @@ package com.example.vk.service;
 
 import com.example.vk.dto.Album;
 import com.example.vk.dto.Photo;
-import com.example.vk.dto.Album;
 
 import java.util.List;
 

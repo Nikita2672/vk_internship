@@ -20,4 +20,14 @@ public interface ProxyUserService {
     List<Post> getPostsByUserId(Long userId);
 
     List<User> getAllUsers();
+
+    User createUser(User user);
+
+    User putUser(Long userId, User user);
+
+    User patchUser(Long userId, User user);
+
+    void deleteUser(Long userId);
+    
+    
 }

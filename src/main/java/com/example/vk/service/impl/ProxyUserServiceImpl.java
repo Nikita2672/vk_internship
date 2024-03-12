@@ -40,4 +40,24 @@ public class ProxyUserServiceImpl implements ProxyUserService {
     public List<User> getAllUsers() {
         return proxyUserClient.getAllUsers();
     }
+
+    @Override
+    public User createUser(User user) {
+        return proxyUserClient.createUser(user);
+    }
+
+    @Override
+    public User putUser(Long userId, User user) {
+        return proxyUserClient.putUser(userId, user);
+    }
+
+    @Override
+    public User patchUser(Long userId, User user) {
+        return proxyUserClient.patchUser(userId, user);
+    }
+
+    @Override
+    public void deleteUser(Long userId) {
+        proxyUserClient.deleteUser(userId);
+    }
 }
