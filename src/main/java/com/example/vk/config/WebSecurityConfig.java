@@ -1,5 +1,6 @@
 package com.example.vk.config;
 
+import com.example.vk.audit.AuditFilter;
 import com.example.vk.config.jwt.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -26,6 +27,7 @@ public class WebSecurityConfig {
     private final LogoutHandler logoutHandler;
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
+    private final AuditFilter auditFilter;
 
     private static final String[] WHITE_LIST_URL = {"/api/v1/auth/**",
             "/v2/api-docs",
@@ -46,9 +48,9 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(request -> request
                         .requestMatchers(WHITE_LIST_URL).permitAll()
                         .requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers("/api/posts/**").hasAnyRole("ADMIN", "POSTS")
-                        .requestMatchers("/api/users/**").hasAnyRole("ADMIN", "USERS")
-                        .requestMatchers("/api/albums/**").hasAnyRole("ADMIN", "ALBUMS")
+                        .requestMatchers("/api/posts/**").hasAnyRole("ADMIN", "POSTS_VIEWERS", "POSTS_EDITORS")
+                        .requestMatchers("/api/users/**").hasAnyRole("ADMIN", "USERS_VIEWERS", "USERS_EDITORS")
+                        .requestMatchers("/api/albums/**").hasAnyRole("ADMIN", "ALBUMS_VIEWERS", "ALBUMS_EDITORS")
                         .anyRequest().permitAll())
                 .sessionManagement(manager -> manager.sessionCreationPolicy(STATELESS))
                 .authenticationProvider(authenticationProvider)
@@ -58,6 +60,7 @@ public class WebSecurityConfig {
                                 .addLogoutHandler(logoutHandler)
                                 .logoutSuccessHandler((request, response, authentication) -> SecurityContextHolder.clearContext())
                 );
+        http.addFilterAfter(auditFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 }
