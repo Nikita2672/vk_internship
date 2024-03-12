@@ -1,5 +1,6 @@
 package com.example.vk.controller;
 
+import com.example.vk.dto.Album;
 import com.example.vk.dto.Photo;
 import com.example.vk.service.ProxyAlbumsService;
 import lombok.RequiredArgsConstructor;
@@ -28,4 +29,11 @@ public class ProxyAlbumController {
     public ResponseEntity<List<Photo>> getPhotosByAlbumId(@PathVariable Long albumId) {
         return ResponseEntity.ok(proxyAlbumsService.getPhotosByAlbumId(albumId));
     }
+
+    @GetMapping
+    public ResponseEntity<List<Album>> getAllAlbums() {
+        return ResponseEntity.ok(proxyAlbumsService.getAllAlbums());
+    }
+
+
 }

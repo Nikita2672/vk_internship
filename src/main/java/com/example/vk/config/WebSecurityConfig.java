@@ -46,9 +46,9 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(request -> request
                         .requestMatchers(WHITE_LIST_URL).permitAll()
                         .requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers("/api/posts/**").hasAnyRole("ROLE_ADMIN", "ROLE_POSTS")
-                        .requestMatchers("/api/users/**").hasAnyRole("ROLE_ADMIN", "ROLE_USERS")
-                        .requestMatchers("/api/albums/**").hasAnyRole("ROLE_ADMIN", "ROLE_ALBUMS")
+                        .requestMatchers("/api/posts/**").hasAnyRole("ADMIN", "POSTS")
+                        .requestMatchers("/api/users/**").hasAnyRole("ADMIN", "USERS")
+                        .requestMatchers("/api/albums/**").hasAnyRole("ADMIN", "ALBUMS")
                         .anyRequest().permitAll())
                 .sessionManagement(manager -> manager.sessionCreationPolicy(STATELESS))
                 .authenticationProvider(authenticationProvider)

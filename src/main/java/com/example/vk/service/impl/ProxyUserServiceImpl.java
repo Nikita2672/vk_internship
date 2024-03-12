@@ -4,6 +4,7 @@ import com.example.vk.client.ProxyUserClient;
 import com.example.vk.dto.Album;
 import com.example.vk.dto.Post;
 import com.example.vk.dto.Todo;
+import com.example.vk.dto.user.User;
 import com.example.vk.service.ProxyUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -33,5 +34,10 @@ public class ProxyUserServiceImpl implements ProxyUserService {
     @Override
     public List<Post> getPostsByUserId(Long userId) {
         return proxyUserClient.getPostsByUserId(userId);
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        return proxyUserClient.getAllUsers();
     }
 }

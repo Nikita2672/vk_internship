@@ -3,6 +3,7 @@ package com.example.vk.controller;
 import com.example.vk.dto.Album;
 import com.example.vk.dto.Post;
 import com.example.vk.dto.Todo;
+import com.example.vk.dto.user.User;
 import com.example.vk.service.ProxyUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -39,5 +40,10 @@ public class ProxyUserController {
     @GetMapping("/{userId}/posts")
     public ResponseEntity<List<Post>> getPostsByUserId(@PathVariable Long userId) {
         return ResponseEntity.ok(proxyUserService.getPostsByUserId(userId));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<User>> getAllUsers() {
+        return ResponseEntity.ok(proxyUserService.getAllUsers());
     }
 }

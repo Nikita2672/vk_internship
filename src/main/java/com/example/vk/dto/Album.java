@@ -9,6 +9,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public record Album(
         @JsonProperty("userId") Long userId,
         @JsonProperty("id") Long id,
-        @JsonProperty("title") Long title
+        @JsonProperty("title") String title
 ) {
 }
