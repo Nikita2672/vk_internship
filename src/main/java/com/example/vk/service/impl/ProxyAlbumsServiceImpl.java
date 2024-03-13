@@ -43,19 +43,19 @@ public class ProxyAlbumsServiceImpl implements ProxyAlbumsService {
     @Override
     @CachePut(key = "#album.id()")
     public Album createAlbum(Album album) {
-        return proxyAlbumClient.createalbum(album);
+        return proxyAlbumClient.createAlbum(album);
     }
 
     @Override
     @CachePut(key = "#albumId")
     public Album putAlbum(Long albumId, Album album) {
-        return proxyAlbumClient.putalbum(albumId, album);
+        return proxyAlbumClient.putAlbum(albumId, album);
     }
 
     @Override
     @CachePut(key = "#albumId")
     public Album patchAlbum(Long albumId, Album album) {
-        return proxyAlbumClient.patchalbum(albumId, album);
+        return proxyAlbumClient.patchAlbum(albumId, album);
     }
 
     @Override

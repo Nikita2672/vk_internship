@@ -31,13 +31,13 @@ public interface ProxyAlbumClient {
     Album getAlbumById(@PathVariable Long albumId);
 
     @RequestMapping(method = RequestMethod.POST, value = "")
-    Album createalbum(@RequestBody Album album);
+    Album createAlbum(@RequestBody Album album);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/{albumId}")
-    Album putalbum(@PathVariable Long albumId, @RequestBody Album album);
+    Album putAlbum(@PathVariable Long albumId, @RequestBody Album album);
 
     @RequestMapping(method = RequestMethod.PATCH, value = "/{albumId}")
-    Album patchalbum(@PathVariable Long albumId, @RequestBody Album album);
+    Album patchAlbum(@PathVariable Long albumId, @RequestBody Album album);
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/{albumId}")
     void deleteAlbum(@PathVariable Long albumId);

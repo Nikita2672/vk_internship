@@ -1,11 +1,13 @@
 package com.example.vk.dto.user;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Builder;
 
 /**
  * @author nivanov
  * @since %CURRENT_VERSION%
  */
+@Builder
 public record User(
         @JsonProperty("id") Long id,
         @JsonProperty("name") String name,

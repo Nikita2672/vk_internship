@@ -45,6 +45,11 @@ public class ProxyAlbumController {
         return ResponseEntity.ok(proxyAlbumsService.putAlbum(albumId, album));
     }
 
+    @GetMapping("/{albumId}")
+    public ResponseEntity<Album> getAlbumById(@PathVariable Long albumId) {
+        return ResponseEntity.ok(proxyAlbumsService.getAlbumById(albumId));
+    }
+
     @PatchMapping("/{albumId}")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_ALBUMS_EDITOR')")
     public ResponseEntity<Album> patchAlbum(@PathVariable Long albumId, @RequestBody Album album) {
