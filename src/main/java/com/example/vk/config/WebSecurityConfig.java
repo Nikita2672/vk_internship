@@ -45,6 +45,7 @@ public class WebSecurityConfig {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> request
                         .requestMatchers(WHITE_LIST_URL).permitAll()
+                        .requestMatchers("/ws").hasRole("ADMIN")
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/posts/**").hasAnyRole("ADMIN", "POSTS_VIEWERS", "POSTS_EDITORS")
                         .requestMatchers("/api/users/**").hasAnyRole("ADMIN", "USERS_VIEWERS", "USERS_EDITORS")
