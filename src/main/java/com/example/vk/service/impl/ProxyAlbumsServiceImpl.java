@@ -13,10 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * @author nivanov
- * @since %CURRENT_VERSION%
- */
+
 @Service
 @RequiredArgsConstructor
 @CacheConfig(cacheNames = "album")

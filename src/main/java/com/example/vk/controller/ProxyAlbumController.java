@@ -10,10 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * @author nivanov
- * @since %CURRENT_VERSION%
- */
+
 @RestController
 @RequestMapping("/api/albums")
 @RequiredArgsConstructor

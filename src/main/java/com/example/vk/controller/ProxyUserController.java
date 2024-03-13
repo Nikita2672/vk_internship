@@ -12,10 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * @author nivanov
- * @since %CURRENT_VERSION%
- */
+
 @RestController
 @RequestMapping("/api/users")
 @RequiredArgsConstructor
@@ -27,6 +24,12 @@ public class ProxyUserController {
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USERS_VIEWERS', 'ROLE_USERS_EDITORS')")
     public ResponseEntity<List<Album>> getAlbumsByUserId(@PathVariable Long userId) {
         return ResponseEntity.ok(proxyUserService.getAlbumsByUserId(userId));
+    }
+
+    @GetMapping("/{userId}")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USERS_VIEWERS', 'ROLE_USERS_EDITORS')")
+    public ResponseEntity<User> getUserById(@PathVariable Long userId) {
+        return ResponseEntity.ok(proxyUserService.getUserById(userId));
     }
 
     @GetMapping("/{userId}/todos")

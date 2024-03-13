@@ -10,10 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
-/**
- * @author nivanov
- * @since %CURRENT_VERSION%
- */
+
 @FeignClient(
         value = "proxyAlbumClient",
         url = "https://jsonplaceholder.typicode.com/albums",

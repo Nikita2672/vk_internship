@@ -8,10 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
-/**
- * @author nivanov
- * @since %CURRENT_VERSION%
- */
+
 @Entity
 @NoArgsConstructor
 @Data

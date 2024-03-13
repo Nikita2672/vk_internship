@@ -19,10 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.http.HttpMethod.*;
 import static org.springframework.http.HttpMethod.PATCH;
 
-/**
- * @author nivanov
- * @since %CURRENT_VERSION%
- */
+
 class ProxyUserApiTest extends AbstractTest {
 
 
@@ -36,6 +33,15 @@ class ProxyUserApiTest extends AbstractTest {
         List<Album> actualAlbums = getResponse("/api/users/" + DEFAULT_ID + "/albums", GET, new TypeReference<>() {
         }, null);
         assertEquals(expectedAlbums, actualAlbums);
+    }
+
+    @Test
+    @WithMockUser(roles = {"ADMIN"})
+    public void testGetUserById() throws Exception {
+        User expectedUser = proxyUserClient.getUserById(DEFAULT_ID + 1);
+        User actualUser = getResponse("/api/users/" + (DEFAULT_ID + 1), GET, new TypeReference<>() {
+        }, null);
+        assertEquals(expectedUser, actualUser);
     }
 
     @Test

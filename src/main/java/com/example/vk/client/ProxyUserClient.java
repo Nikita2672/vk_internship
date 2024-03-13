@@ -12,10 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
-/**
- * @author nivanov
- * @since %CURRENT_VERSION%
- */
+
 @FeignClient(
         value = "proxyUserClient",
         url = "https://jsonplaceholder.typicode.com/users",

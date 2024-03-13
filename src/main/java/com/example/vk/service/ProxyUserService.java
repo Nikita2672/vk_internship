@@ -7,10 +7,7 @@ import com.example.vk.dto.user.User;
 
 import java.util.List;
 
-/**
- * @author nivanov
- * @since %CURRENT_VERSION%
- */
+
 public interface ProxyUserService {
 
     List<Album> getAlbumsByUserId(Long userId);

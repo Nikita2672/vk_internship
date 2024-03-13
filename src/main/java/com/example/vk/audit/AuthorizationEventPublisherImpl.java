@@ -12,10 +12,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.function.Supplier;
 
-/**
- * @author nivanov
- * @since %CURRENT_VERSION%
- */
+
 @Component
 @RequiredArgsConstructor
 public class AuthorizationEventPublisherImpl implements AuthorizationEventPublisher {
@@ -29,11 +26,15 @@ public class AuthorizationEventPublisherImpl implements AuthorizationEventPublis
 
     private static final String WHITE_LIST_URI = "/api/auth/";
 
+    private static final String WEBSOCKET_URI = "/ws";
+
     @Override
     public <T> void publishAuthorizationEvent(Supplier<Authentication> authentication, T object, AuthorizationDecision decision) {
         if (decision == null) return;
 
-        if (authentication.getClass().getName().startsWith(NEEDED_FILTER) || request.getRequestURI().startsWith(WHITE_LIST_URI))
+        if (authentication.getClass().getName().startsWith(NEEDED_FILTER) ||
+                request.getRequestURI().startsWith(WHITE_LIST_URI) ||
+                request.getRequestURI().startsWith(WEBSOCKET_URI))
             publisher.publishEvent(new AuthorizationGrantedEvent<>(authentication, object, decision));
     }
 }

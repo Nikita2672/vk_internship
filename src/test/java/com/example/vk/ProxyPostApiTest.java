@@ -13,10 +13,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.http.HttpMethod.*;
 
-/**
- * @author nivanov
- * @since %CURRENT_VERSION%
- */
+
 class ProxyPostApiTest extends AbstractTest {
 
     @Autowired

@@ -5,10 +5,7 @@ import com.example.vk.dto.PostComment;
 
 import java.util.List;
 
-/**
- * @author nivanov
- * @since %CURRENT_VERSION%
- */
+
 public interface ProxyPostService {
 
     List<Post> posts();

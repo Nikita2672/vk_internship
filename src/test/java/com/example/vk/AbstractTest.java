@@ -14,10 +14,7 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-/**
- * @author nivanov
- * @since %CURRENT_VERSION%
- */
+
 @SpringBootTest
 @AutoConfigureMockMvc
 public abstract class AbstractTest {

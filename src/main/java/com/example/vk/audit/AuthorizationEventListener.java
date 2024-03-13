@@ -11,10 +11,7 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
-/**
- * @author nivanov
- * @since %CURRENT_VERSION%
- */
+
 @Component
 @RequiredArgsConstructor
 public class AuthorizationEventListener {
