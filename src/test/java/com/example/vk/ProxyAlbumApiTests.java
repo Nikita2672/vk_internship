@@ -39,8 +39,8 @@ class ProxyAlbumApiTests extends AbstractTest {
     @Test
     @WithMockUser(roles = {"ADMIN"})
     public void testGetAlbumById() throws Exception {
-        Album expectedAlbum = proxyAlbumClient.getAlbumById(DEFAULT_ID);
-        Album actualAlbum = getResponse("/api/albums/" + DEFAULT_ID, GET, new TypeReference<>() {
+        Album expectedAlbum = proxyAlbumClient.getAlbumById(DEFAULT_ID + 1);
+        Album actualAlbum = getResponse("/api/albums/" + (DEFAULT_ID + 1), GET, new TypeReference<>() {
         }, null);
         assertEquals(expectedAlbum, actualAlbum);
     }

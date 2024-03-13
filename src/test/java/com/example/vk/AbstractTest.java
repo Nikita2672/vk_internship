@@ -53,5 +53,4 @@ public abstract class AbstractTest {
 
         return objectMapper.readValue(responseJson, responseType);
     }
-
 }
