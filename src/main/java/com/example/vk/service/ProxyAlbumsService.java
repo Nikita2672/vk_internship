@@ -15,6 +15,8 @@ public interface ProxyAlbumsService {
 
     List<Album> getAllAlbums();
 
+    Album getAlbumById(Long albumId);
+
     Album createAlbum(Album album);
 
     Album putAlbum(Long albumId, Album album);

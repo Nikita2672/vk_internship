@@ -6,17 +6,20 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 /**
  * @author nivanov
  * @since %CURRENT_VERSION%
  */
+@Entity
+@NoArgsConstructor
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-@Entity
 @Table(name = "audit")
-public class AuditLog {
+public class AuditEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -25,12 +28,18 @@ public class AuditLog {
     @Column(name = "method")
     private String method;
 
-    @Column(name = "path")
-    private String path;
+    @Column(name = "endpoint")
+    private String endpoint;
+
+    @Column(name = "status")
+    private String status;
 
     @Column(name = "username")
     private String username;
 
-    @Column(name = "has_access")
-    private Boolean hasAccess;
+    @Column(name = "ip")
+    private String ip;
+
+    @Column(name = "time")
+    private LocalDateTime time;
 }

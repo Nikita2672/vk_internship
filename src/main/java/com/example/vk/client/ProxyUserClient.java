@@ -35,6 +35,9 @@ public interface ProxyUserClient {
     @RequestMapping(method = RequestMethod.GET, value = "")
     List<User> getAllUsers();
 
+    @RequestMapping(method = RequestMethod.GET, value = "/{userId}")
+    User getUserById(@PathVariable Long userId);
+
     @RequestMapping(method = RequestMethod.DELETE, value = "/{userId}")
     void deleteUserById(@PathVariable Long userId);
 

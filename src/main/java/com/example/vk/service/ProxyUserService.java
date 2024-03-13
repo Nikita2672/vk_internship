@@ -21,6 +21,8 @@ public interface ProxyUserService {
 
     List<User> getAllUsers();
 
+    User getUserById(Long userId);
+
     User createUser(User user);
 
     User putUser(Long userId, User user);
